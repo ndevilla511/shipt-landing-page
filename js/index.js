@@ -1,9 +1,6 @@
 (function($, window, document){
   var stores = {
-    stores: [{
-      name: "Target",
-      launchDate: new Date()
-    }],
+    stores: [],
     init: function() {
       this.cacheDom();
       this.bindEvents();
@@ -92,7 +89,6 @@
       })
     }
   };
-  console.log(stores);
   stores.init();
 }(window.jQuery, window, document));
 

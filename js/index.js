@@ -4,7 +4,7 @@
     init: function() {
       this.cacheDom();
       this.bindEvents();
-      this.render();
+      // this.render();
     },
     cacheDom: function() {
       this.$zipInput = $('#zipInput');

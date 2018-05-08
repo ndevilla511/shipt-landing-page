@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shipt</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-lg fixed-top shipt-navbar px-0 pt-0 text-white rounded-0">
+      <div class="promo-bar w-100">
+        <p class="text-center text-bold text-small py-2 my-0">GET $50 OFF + $15 CREDIT*</p>
+      </div>
+      <div class="container d-flex py-1 px-3">
+        <a class="navbar-brand order-1" href="#">
+          <img src="img/shiptlogo.png" alt="Card image cap">
+        </a>
+        <a class="btn btn-primary order-2 shipt-btn rounded-0 py-3 px-5">SIGN UP</a>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container px-0">
+      <div class="jumbotron hero-container text-white rounded-0">
+        <div class="row justify-content-center py-3">
+          <div class="col-xs-9 col-md-7">
+            <h1 class="display-4 main-headline text-center text-bold">Target exclusive offer.</h1>
+            <p class="lead text-center">$49 membership(reg. $99) + $15 credit <br>with qualifying purchase.*</p>
+            <form class="input-group mb-3 mx-auto" id="hero-form" name="hero-form">
+              <input type="text" class="form-control rounded-0 text-bold mb-3" id="zipInput" placeholder="Enter ZIP Code" aria-label="Recipient's username">
+              <div class="input-group-append mb-3">
+                <button class="btn btn-primary shipt-btn rounded-0 d-none d-lg-block zipSubmit px-5" type="button">GET STARTED</button>
+              </div>
+              <button class="btn btn-primary shipt-btn py-4 rounded-0 w-100 d-block d-lg-none zipSubmit" type="button">GET STARTED</button>
+            </form>
+            <p class="w-75 mx-auto text-bold text-small" id="errorMessage">THIS ZIPCODE IS INVALID! PLEASE TRY AGAIN.</p>
+            <p class="text-center disclaimer">*Membership offer valid for new members only. Target order of $100 or more must be placed to qualify for $15 credit, which expires 30 days after qualifying order is placed and can be applied to any order from Shipt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-bold my-3" id="stores-display-container">
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 text-center">
+          <p class="text-small">DELIVERING FROM:</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mb-4" id="stores-display">
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-3 col-lg-2 text-center">
+          <a href="#" class="btn btn-primary shipt-btn w-100 py-3 mt-4 rounded-0">GET STARTED</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container rounded-0">
+      <!-- Content Row -->
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="text-center text-bold supporting-headline my-5">Everything you love about Target at your fingertips.</h2>
+        </div>
+      </div>
+
+      <!-- Content Row -->
+      <div class="row justify-content-center text-center mt-3">
+        <div class="col-md-4 mb-4">
+          <div class="card shipt-card border-0">
+            <img class="card-img-top img-shadow mb-3" src="img/Step1.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title feature-title text-bold">Scroll through the aisles.</h5>
+              <p class="card-text">Create an order from your local website store in our app or on our website.</p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4 mb-4">
+          <div class="card shipt-card border-0">
+            <img class="card-img-top img-shadow mb-3" src="img/Step2.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title feature-title text-bold">Our shoppers work their magic.</h5>
+              <p class="card-text">Connect with your shopper and get live updates from the aisles.</p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4 mb-4">
+          <div class="card shipt-card border-0">
+            <img class="card-img-top img-shadow mb-3" src="img/Step3.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title feature-title text-bold">We deliver your groceries.</h5>
+              <p class="card-text">Schedule a delivery, and your order will arrive in as soon as 1 hour.</p>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4 mb-4 text-center">
+          <a href="#" class="btn btn-primary shipt-btn w-100 py-4 rounded-0">GET STARTED</a>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white text-small">&copy; Shipt, Inc. and its services are not necessarily affiliated or endorsed by the retailers on this site.</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+
+  </body>
+
+</html>

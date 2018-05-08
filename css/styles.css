@@ -99,7 +99,7 @@ body {
   color: #ffffff;
   background-color: #71b045;
   border-color: #71b045;
-  box-shadow: 0px 5px 25px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.05);
 }
 
 .shipt-btn:hover {

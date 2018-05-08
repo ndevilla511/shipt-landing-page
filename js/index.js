@@ -1,35 +1,74 @@
-(function($, window, document) {
-  var zipInput = $('#zipInput');
-  var zipSubmit = $('.zipSubmit');
-  var storesDisplay = $('#stores-display');
-  var storesDisplayContainer = $('#stores-display-container');
-  var errorMessage = $('#errorMessage');
-  var zipAPI = "https://shipt-zip-code-test-api.herokuapp.com/api/zip_codes/";
-
-  //click handler for the button on the zip code input
-  zipSubmit.click(function() {
-    var zipCode = $('#zipInput').val();
-
-    //clear the stores display div
-    storesDisplay.empty();
-
-    //ajax request to the shipt zipcode api
-    $.ajax({
-      method: "GET",
-      url: zipAPI + zipCode
-    }).done(function(result) {
-      var stores = result.stores;
-      storesDisplayContainer.css("display", "block");
-
-      //sorts through the stores array alphabetically
-      stores.sort(function(a, b){
+(function($, window, document){
+  var stores = {
+    stores: [{
+      name: "Target",
+      launchDate: new Date()
+    }],
+    init: function() {
+      this.cacheDom();
+      this.bindEvents();
+      this.render();
+    },
+    cacheDom: function() {
+      this.$zipInput = $('#zipInput');
+      this.$zipSubmit = $('.zipSubmit');
+      this.$storesDisplay = $('#stores-display');
+      this.$storesDisplayContainer = $('#stores-display-container');
+      this.$errorMessage = $('#errorMessage');
+    },
+    bindEvents: function() {
+      this.$zipSubmit.click(this.getStoresData.bind(this));
+      this.$zipInput.focus(this.removeErrorState.bind(this));
+    },
+    addErrorState: function(error) {
+      this.$storesDisplayContainer.css("display", "none");
+      this.$errorMessage.css("display", "block");
+      this.$zipInput.css({
+        "color": "#ef7b41",
+        "background": "url('../img/locationalerticon.png') left 15px top 15px no-repeat, url('../img/AlertNormal.png') right 15px top 10px no-repeat",
+        "background-color" : "#ffffff"
+      })
+    },
+    removeErrorState: function() {
+      this.$errorMessage.css("display", "none");
+      this.$zipInput.css({
+        "color": "#414041",
+        "background": "url('../img/locationfocusedicon.png') no-repeat scroll 15px 15px",
+        "background-color": "#ffffff"
+      });
+    },
+    addStoresData: function(result) {
+      this.stores = result.stores.sort(function(a, b){
         if(a.name < b.name) return -1;
         if(a.name > b.name) return 1;
         return 0;
       });
+      this.$storesDisplayContainer.css("display", "block");
+      this.render();
+    },
+    getUrl: function() {
+      return  "https://shipt-zip-code-test-api.herokuapp.com/api/zip_codes/"
+    },
+    getZipCode: function() {
+      return this.$zipInput.val();
+    },
+    clearStoresDisplay: function() {
+      this.$storesDisplay.empty();
+    },
+    getStoresData: function() {
+      var _this = this;
+      _this.clearStoresDisplay();
+      $.ajax({
+        method: "GET",
+        url: _this.getUrl() + _this.getZipCode()
+      })
+        .done(_this.addStoresData.bind(this))
+        .fail(_this.addErrorState.bind(this));
+    },
 
-      //iterate through each store object in the array
-      $.each(stores, function(index, value) {
+    render: function() {
+      var _this = this;
+      $.each(_this.stores, function(index, value) {
         var storeName = value.name;
         var launchDate = new Date(value.launch_date);
         var currentDate = new Date();
@@ -49,33 +88,11 @@
           "</div>");
 
         //appends a div for each store object to the storesDisplay div
-        storesDisplay.append(storeDiv);
+        _this.$storesDisplay.append(storeDiv);
       })
-
-    }).fail(function(error) {
-
-      //hides the storesDisplayContainer div in case of error
-      storesDisplayContainer.css("display", "none");
-
-      //displays the error message underneath the input and button
-      errorMessage.css("display", "block");
-
-      //applies error styling to the zip input
-      zipInput.css({
-        "color": "#ef7b41",
-      "background": "url('../img/locationalerticon.png') left 15px top 15px no-repeat, url('../img/AlertNormal.png') right 15px top 10px no-repeat",
-      "background-color" : "#ffffff"
-      });
-    });
-  });
-
-  //if the error message is displayed, putting the input on focus reverts styling and hides the error message
-  zipInput.focus(function() {
-    errorMessage.css("display", "none");
-    zipInput.css({
-      "color": "#414041",
-      "background": "url('../img/locationfocusedicon.png') no-repeat scroll 15px 15px",
-      "background-color": "#ffffff"
-    });
-  });
+    }
+  };
+  console.log(stores);
+  stores.init();
 }(window.jQuery, window, document));
+

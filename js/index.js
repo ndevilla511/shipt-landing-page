@@ -9,8 +9,8 @@
     cacheDom: function() {
       this.$zipInput = $('#zipInput');
       this.$zipSubmit = $('.zipSubmit');
-      this.$storesDisplay = $('#stores-display');
-      this.$storesDisplayContainer = $('#stores-display-container');
+      this.$storesDisplay = $('#storesDisplay');
+      this.$storesDisplayContainer = $('#storesDisplayContainer');
       this.$errorMessage = $('#errorMessage');
     },
     bindEvents: function() {
